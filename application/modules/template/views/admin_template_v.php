@@ -97,10 +97,10 @@
                             <a href="#"><i class="fa fa-list-alt fa-fw"></i> Category Managment<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="create_category.php"><i class="fa fa-plus fa-fw"></i> Create Category</a>
+                                    <a href="<?php base_url();?>/news-portal/news/create_category"><i class="fa fa-plus fa-fw"></i> Create Category</a>
                                 </li>
                                 <li>
-                                    <a href="list_category.php"><i class="fa fa-list fa-fw"></i> List Category</a>
+                                    <a href="<?php base_url();?>/news-portal/news/list_category"><i class="fa fa-list fa-fw"></i> List Category</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -109,10 +109,10 @@
                             <a href="#"><i class="fa fa-newspaper-o fa-fw"></i> News Managment<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="create_news.php"><i class="fa fa-plus fa-fw"></i> Create News</a>
+                                    <a href=""><i class="fa fa-plus fa-fw"></i> Create News</a>
                                 </li>
                                 <li>
-                                    <a href="<?php base_url();?>"><i class="fa fa-list fa-fw"></i> List News</a>
+                                    <a href="<?php base_url();?>/news-portal/news/index"><i class="fa fa-list fa-fw"></i> List News</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -121,10 +121,10 @@
                             <a href="#"><i class="fa fa-image fa-fw"></i> Advertise Managment<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="create_ads.php"><i class="fa fa-plus fa-fw"></i> Create Advertise</a>
+                                    <a href="<?php base_url();?>/news-portal/advertisement/create_advertise"><i class="fa fa-plus fa-fw"></i> Create Advertise</a>
                                 </li>
                                 <li>
-                                    <a href="list_ads.php"><i class="fa fa-list fa-fw"></i> List Advertise</a>
+                                    <a href="<?php base_url();?>/news-portal/advertisement/list_advertisement"><i class="fa fa-list fa-fw"></i> List Advertise</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -180,14 +180,23 @@
     <script src="<?php echo base_url(); ?>assets/admin/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/vendor/datatables-responsive/dataTables.responsive.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/validation/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/validation/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/ckeditor/ckeditor.js"></script> 
     <script type="text/javascript">
+
     $(document).ready(function(){
-    $('#categoryform').validate();
+        $('#categoryform').validate();
     });
+
+
     $(document).ready(function() {
         $('#CategoryTable').DataTable({
             responsive: true
         });
+    });
+
+    $(document).ready(function(){
+    $('#newsform').validate();
     });
     </script>
 </html>

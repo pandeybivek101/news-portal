@@ -17,4 +17,8 @@ class News_m extends CI_Model {
 		return $query->result();
 	}
 
+	public function insert_news($data){
+		$this->db->insert('tbl_news', $data);
+	}
+
 }
