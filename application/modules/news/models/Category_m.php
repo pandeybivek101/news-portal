@@ -32,5 +32,5 @@ class Category_m extends CI_Model {
 	public function delete_category($id){
 		return $this->db->where('id', $id)->delete('tbl_category');
 	}
-
+		
 }

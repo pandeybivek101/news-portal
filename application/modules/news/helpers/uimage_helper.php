@@ -12,5 +12,4 @@ function upload_image($image){
     }
     return $filename;
 }
-
 ?>

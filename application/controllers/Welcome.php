@@ -5,6 +5,7 @@ class Welcome extends MY_Controller {
 
 	function __construct(){
 		parent::__construct();
+		//$this->load->module('auth');
 	}
 
 	/**
@@ -26,6 +27,8 @@ class Welcome extends MY_Controller {
 	{
 		$data['title']='welcome';
 		$data['content']='welcome_v';
+		$users=$this->session->userdata('identity');
+		print_r($users);
 		$this->template->get_public_template($data);
 	}
 }

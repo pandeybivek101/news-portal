@@ -32,8 +32,8 @@
                             <label class="label label-danger">Inactive</label>
                             <?php endif ?>                                          
                         </td>
-                        <td class="center"><?= $cl->created_by ?></td>
-                        <td><?= $cl->modified_by ?></td>
+                        <td class="center"><?= get_username_by_id($cl->created_by) ?> </td>
+                        <td class="center"><?= get_username_by_id($cl->modified_by) ?> </td>
                         <td><?= $cl->created_date ?></td>
                         <td><?= $cl->modified_date ?></td>
                         <td><a href="<?php base_url();?>/news-portal/news/update_category/<?= $cl->id ?>" class="btn btn-success btn-xs"><i class="fa fa-pencil"></i> Edit</a> <a href="<?php base_url();?>/news-portal/news/delete_category/<?= $cl->id ?>" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure want to delete?')"><i class="fa fa-trash"></i> Delete</a></td>

@@ -936,7 +936,7 @@ class Ion_auth_model extends CI_Model
 				}
 
 				$this->set_session($user);
-
+				
 				$this->update_last_login($user->id);
 
 				$this->clear_login_attempts($identity);

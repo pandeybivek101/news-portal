@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Advertisement extends MY_Controller {
+class Advertisement extends Auth_Controller {
 
 	function __construct(){
 		parent::__construct();
@@ -30,7 +30,7 @@ class Advertisement extends MY_Controller {
 					'created_date'=>get_current_timestamp(),
 
 					//will change later
-					'created_by'=>'admin'
+					'created_by'=>get_user_id(),
 				);
 				$this->Advertisement_m->insert_advertisment($advertiseData);
 				$this->session->set_flashdata('message', 'Advertisement Created Successfully');
@@ -55,7 +55,7 @@ class Advertisement extends MY_Controller {
 					'modified_date'=>get_current_timestamp(),
 
 					//will change later
-					'modified_by'=>'admin'
+					'modified_by'=>get_user_id(),
 				);
 				$this->Advertisement_m->update_advertisement($id, $advertiseData);
 				$this->session->set_flashdata('message', 'Advertisement Updated Successfully');

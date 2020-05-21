@@ -21,4 +21,18 @@ class News_m extends CI_Model {
 		$this->db->insert('tbl_news', $data);
 	}
 
+	public function update_news($data, $id){
+		$this->db->where('id', $id);
+		$query=$this->db->update('tbl_news', $data);
+		return $query;
+	}
+
+	public function get_news_record($id){
+		$this->db->where('id', $id);
+		$query = $this->db->get('tbl_news');
+		return $query->row();
+	}
+
+	
+
 }

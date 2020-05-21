@@ -9,7 +9,8 @@
                 <div class="col-lg-12">
                     <?= $this->session->flashdata('message'); ?>
 
-                    <form role="form" action="" method="post" id="newsform" enctype="multipart/form-data">
+                    <!--<form role="form" action="" method="post" id="newsform" enctype="multipart/form-data">-->
+                        <?php echo form_open_multipart('news/create_news', ['id'=>'newsform'])  ?>
                         <div class="form-group">
                             <label>Title</label>
                             <input class="form-control" name="title" required="">                                    

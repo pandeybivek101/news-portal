@@ -59,7 +59,7 @@
               
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                       name <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                       <?php echo $this->session->userdata('identity') ?> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -67,7 +67,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="<?php base_url();?>/news-portal/auth/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -109,7 +109,7 @@
                             <a href="#"><i class="fa fa-newspaper-o fa-fw"></i> News Managment<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href=""><i class="fa fa-plus fa-fw"></i> Create News</a>
+                                    <a href="<?php base_url();?>/news-portal/news/create_news"><i class="fa fa-plus fa-fw"></i> Create News</a>
                                 </li>
                                 <li>
                                     <a href="<?php base_url();?>/news-portal/news/index"><i class="fa fa-list fa-fw"></i> List News</a>

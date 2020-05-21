@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class News extends MY_Controller {
+class News extends Auth_Controller {
 
 	function __construct(){
 		parent::__construct();
@@ -27,7 +27,7 @@ class News extends MY_Controller {
 				'created_date'=>get_current_timestamp(),
 
 				//will change in future with session userdata
-				'created_by'=>'admin',
+				'created_by'=>get_user_id(),
 			);
 			$this->Category_m->save_category($insertdata);
 			$this->session->set_flashdata('message','Successfully Inserted');
@@ -57,7 +57,7 @@ class News extends MY_Controller {
 				'modified_date'=>get_current_timestamp(),
 
 				//will change in future with session userdata
-				'modified_by'=>'admin',
+				'modified_by'=>get_user_id(),
 			);
 			$this->Category_m->update_category($updatedata, $id);
 			$this->session->set_flashdata('message','Successfully Updated');
@@ -90,7 +90,7 @@ class News extends MY_Controller {
 	            	'created_date'=>get_current_timestamp(),
 
 	            	//will chane later after ion auth added
-	            	'created_by'=>'admin',
+	            	'created_by'=>get_user_id(),
 	            );
 	            $this->News_m->insert_news($insertdata);
 	            $this->session->set_flashdata('message', 'News Inserted Successfully');
@@ -99,6 +99,40 @@ class News extends MY_Controller {
 		}
 		$data['title']='Create News';
 		$data['content']='news/create_news_v';
+		$data['category_lists']=$this->Category_m->get_all_categories_list();
+		$this->template->get_admin_template($data);
+	}
+
+
+	public function update_news($id){
+		if($_POST){
+			if($this->form_validation->run('news')){
+				if(isset($_FILES['image']['name'])){
+					$filename=upload_image('image');
+				}else{
+					$filename=$_POST['oldimage'];
+				}
+	            $updatedata=array(
+	            	'title'=>$_POST['title'],
+	            	'category_id'=>$_POST['category_id'],
+	            	'short_description'=>$_POST['short_description'],
+	            	'description'=>$_POST['description'],
+	            	'feature_image'=>$filename,
+	            	'feature_key'=>$_POST['feature_key'],
+	            	'status'=>$_POST['status'],
+	            	'created_date'=>get_current_timestamp(),
+
+	            	//will chane later after ion auth added
+	            	'created_by'=>get_user_id(),
+	            );
+	            $this->News_m->update_news($updatedata, $id);
+	            $this->session->set_flashdata('message', 'News Updated Successfully');
+	            return redirect('news/update_news/'.$id);
+			}
+		}
+		$data['title']='Update News';
+		$data['content']='news/update_news_v';
+		$data['values']=$this->News_m->get_news_record($id);
 		$data['category_lists']=$this->Category_m->get_all_categories_list();
 		$this->template->get_admin_template($data);
 	}

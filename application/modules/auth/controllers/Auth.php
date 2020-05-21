@@ -13,7 +13,7 @@ class Auth extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->database();
-		$this->load->library(['ion_auth', 'form_validation']);
+		$this->load->library(['ion_auth', 'form_validation', 'session']);
 		$this->load->helper(['url', 'language']);
 
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
@@ -81,7 +81,8 @@ class Auth extends MY_Controller
 				//if the login is successful
 				//redirect them back to the home page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect('/', 'refresh');
+				//redirect('/', 'refresh');
+				redirect('news/index', 'refresh');
 			}
 			else
 			{
