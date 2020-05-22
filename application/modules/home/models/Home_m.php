@@ -38,9 +38,14 @@ class Home_m extends CI_Model {
 
 	public function get_comments($id){
 		$this->db->where('news_id', $id);
-		$this->db->order_by('comment_date', 'asc');
+		$this->db->order_by('comment_date', 'desc');
+		$this->db->limit(5);
 		$query=$this->db->get('tbl_comment')->result();
 		return $query;
+	}
+
+	public function insert_comment($data){
+		$this->db->insert('tbl_comment', $data);
 	}
 		
 }

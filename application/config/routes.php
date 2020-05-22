@@ -54,4 +54,5 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 //route for home
+$route['news/(:num)'] = 'home/specific_news/$1';
 

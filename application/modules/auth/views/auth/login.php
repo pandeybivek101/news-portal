@@ -1,28 +1,84 @@
-<h1><?php echo lang('login_heading');?></h1>
-<p><?php echo lang('login_subheading');?></p>
+<!DOCTYPE html>
+<html lang="en">
 
-<div id="infoMessage"><?php echo $message;?></div>
+<head>
 
-<?php echo form_open("auth/login");?>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <p>
-    <?php echo lang('login_identity_label', 'identity');?>
-    <?php echo form_input($identity);?>
-  </p>
+    <title>Admin|Login</title>
 
-  <p>
-    <?php echo lang('login_password_label', 'password');?>
-    <?php echo form_input($password);?>
-  </p>
+    <!-- Bootstrap Core CSS -->
+    <link href="<?php echo base_url(); ?>assets/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <p>
-    <?php echo lang('login_remember_label', 'remember');?>
-    <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?>
-  </p>
+    <!-- MetisMenu CSS -->
+    <link href="<?php echo base_url(); ?>assets/admin/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
+    <!-- Custom CSS -->
+    <link href="<?php echo base_url(); ?>assets/admin/dist/css/sb-admin-2.css" rel="stylesheet">
 
-  <p><?php echo form_submit('submit', lang('login_submit_btn'));?></p>
+    <!-- Custom Fonts -->
+    <link href="<?php echo base_url(); ?>assets/admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-<?php echo form_close();?>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-<p><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <?php echo form_open("auth/login");?>
+                        <div id="infoMessage"><?php echo $message;?></div>
+                            <fieldset>
+                                <div class="form-group">
+                                    <?php echo form_input(['class'=>'form-control','placeholder'=>'E-mail', 'autofocus'=>'', 'name'=>'identity']);?>
+                                </div>
+                                <div class="form-group">
+                                    <?php echo form_password(['class'=>'form-control', 'placeholder'=>'Password','name'=>'password', 'autofocus'=>'']);?>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?><p>Remember Me</p>
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <button  class="btn btn-lg btn-success btn-block">Login</button>
+                            </fieldset>
+                        </form>
+                        <p><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="<?php echo base_url(); ?>assets/admin/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="<?php echo base_url(); ?>assets/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="<?php echo base_url(); ?>assets/admin/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="<?php echo base_url(); ?>assets/admin/dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>

@@ -8,7 +8,7 @@
             <div class="panel-overlay">
               <h2><?php echo substr($sn->title, 0, 60) ?></h2>
               <p><?php echo substr($sn->short_description, 0, 80).'...' ?><br />
-                <a href="news.php?id=<?php echo $sn->id ?>">Continue Reading &raquo;</a></p>
+                <a href="<?php base_url();?>/news-portal/news/<?= $sn->id ?>">Continue Reading &raquo;</a></p>
             </div>
           </li>
           <?php endforeach ?>

@@ -6,7 +6,7 @@ class Home extends MY_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('Home_m');
-		$this->load->helper('home');
+		$this->load->helper(['home', 'url', 'form']);
 	}
 
 	public function index()
@@ -20,6 +20,16 @@ class Home extends MY_Controller {
 	}
 
 	public function specific_news($id){
+		if ($_POST) {
+			$insertdata=array(
+				'name'=>$_POST['name'],
+				'email'=>$_POST['email'],
+				'comment'=>$_POST['comment'],
+				'news_id'=>$id,
+			);
+			$this->Home_m->insert_comment($insertdata);
+			return redirect('home/specific_news/'.$id);
+		}
 		$data['title']='Detail News';
 		$data['content']='home/single_news_v';
 		$data['news']=$this->Home_m->get_news($id);

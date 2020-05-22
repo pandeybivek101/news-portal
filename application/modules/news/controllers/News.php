@@ -107,7 +107,7 @@ class News extends Auth_Controller {
 	public function update_news($id){
 		if($_POST){
 			if($this->form_validation->run('news')){
-				if(isset($_FILES['image']['name'])){
+				if(isset($_FILES)){
 					$filename=upload_image('image');
 				}else{
 					$filename=$_POST['oldimage'];

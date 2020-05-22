@@ -18,7 +18,7 @@
   <div class="container">
     <div class="content">
       <h1><?= $title ?></h1>
-      <span style="color:Red">Posted by : ram on march 26</span>
+      <span style="color:Red">Posted by : <?= get_username_by_id($news->created_by) ?> on <?= $news->created_date ?></span>
       <img class="imgr" src="<?php echo base_url(); ?>images/<?= $news->feature_image ?>" alt="" width="150" height="150" />
       <p>
       <?= $news->description ?>
@@ -43,17 +43,17 @@
       </div>
       <h2>Write A Comment</h2>
       <div id="respond">
-        <form action="" method="post">
+        <?php echo form_open('home/specific_news/'.$news->id)  ?>
           <p>
-            <input type="text" name="name" id="name" value="" size="22" />
+            <input type="text" name="name" id="name" value="" size="22" required="" />
             <label for="name"><small>Name (required)</small></label>
           </p>
           <p>
-            <input type="text" name="email" id="email" value="" size="22" />
+            <input type="email" name="email" id="email" value="" size="22" required="" />
             <label for="email"><small>Mail (required)</small></label>
           </p>
           <p>
-            <textarea name="comment" id="comment" cols="100%" rows="10"></textarea>
+            <textarea name="comment" id="comment" cols="100%" rows="10" required=""></textarea>
             <label for="comment" style="display:none;"><small>Comment (required)</small></label>
           </p>
           <p>
